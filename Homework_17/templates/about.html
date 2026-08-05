@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>ჩვენი სტრატეგიები</h1>
+    <p>ძირითადი მიდგომები, რომლებსაც ბაზარზე ვიყენებთ:</p>
+
+    <div class="strategy-list">
+        {% for strategy in strategies %}
+            <div style="border: 1px solid #ccc; margin: 10px 0; padding: 10px;">
+                <h3>{{ strategy.name }}</h3>
+                <p>რისკის დონე: {{ strategy.risk }}</p>
+                <p>თაიმფრეიმი: {{ strategy.timeframe }}</p>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

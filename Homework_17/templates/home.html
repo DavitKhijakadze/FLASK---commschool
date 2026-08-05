@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>ფორექს ტრეიდინგის პლატფორმა</h1>
+    <p>პოპულარული სავალუტო წყვილები:</p>
+
+    <ul>
+        {% for pair in pairs %}
+            <li><strong>{{ pair }}</strong></li>
+        {% endfor %}
+    </ul>
+{% endblock %}

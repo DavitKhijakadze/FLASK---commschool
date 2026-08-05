@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>საკონტაქტო / ბაზრის სტატუსი</h1>
+    <p>მოგვწერეთ ელ-ფოსტაზე: trader@forexanalytics.ge</p>
+
+    <hr>
+
+    <h3>ბაზრის მიმდინარე სტატუსი:</h3>
+    {% if market_open %}
+        <p style="color: green; font-weight: bold;">
+            🟢 ფორექსის ბაზარი ღიაა! სავაჭრო სესიები აქტიურია.
+        </p>
+    {% else %}
+        <p style="color: red; font-weight: bold;">
+            🔴 ბაზარი დახურულია (შაბათ-კვირა). სესიები განახლდება ორშაბათს.
+        </p>
+    {% endif %}
+{% endblock %}
