@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %}სტუდენტის დამატება{% endblock %}
+
+{% block content %}
+    <h1>ახალი სტუდენტის დამატება</h1>
+
+    <form method="POST" action="{{ url_for('add') }}">
+        <label for="name">სახელი:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="email">მეილი:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="course">კურსი:</label>
+        <input type="text" id="course" name="course" required>
+
+        <label for="grade">შეფასება:</label>
+        <input type="number" id="grade" name="grade" step="0.01" min="0" max="100" required>
+
+        <button class="btn" type="submit">დამატება</button>
+    </form>
+{% endblock %}

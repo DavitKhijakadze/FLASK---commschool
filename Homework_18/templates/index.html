@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block title %}სტუდენტების სია{% endblock %}
+
+{% block content %}
+    <h1>სტუდენტების სია</h1>
+
+    {% if students %}
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>სახელი</th>
+            <th>მეილი</th>
+            <th>კურსი</th>
+            <th>შეფასება</th>
+            <th>თარიღი</th>
+            <th>მოქმედება</th>
+        </tr>
+        {% for student in students %}
+        <tr>
+            <td>{{ student.id }}</td>
+            <td>{{ student.name }}</td>
+            <td>{{ student.email }}</td>
+            <td>{{ student.course }}</td>
+            <td>{{ student.grade }}</td>
+            <td>{{ student.date.strftime('%Y-%m-%d') }}</td>
+            <td><a class="delete-link" href="{{ url_for('delete', id=student.id) }}"
+                   onclick="return confirm('ნამდვილად გსურთ წაშლა?');">წაშლა</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% else %}
+        <p>სტუდენტები არ არის დამატებული.</p>
+    {% endif %}
+
+    <a class="btn" href="{{ url_for('add') }}">+ ახალი სტუდენტის დამატება</a>
+{% endblock %}
