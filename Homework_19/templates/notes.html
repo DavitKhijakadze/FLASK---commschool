@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block title %}ჩემი ჩანაწერები{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h2>ჩემი პირადი ჩანაწერები</h2>
+    <a href="{{ url_for('add_note') }}" class="btn btn-primary">+ ახალი ჩანაწერი</a>
+</div>
+
+{% if notes %}
+    <div class="row">
+        {% for note in notes %}
+            <div class="col-md-6 mb-3">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title text-primary">{{ note.title }}</h5>
+                        <p class="card-text">{{ note.content }}</p>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% else %}
+    <div class="alert alert-secondary text-center" role="alert">
+        ჯერ არ გაქვთ ჩანაწერები. დააჭირეთ „ახალი ჩანაწერი“-ს შესაქმნელად.
+    </div>
+{% endif %}
+{% endblock %}
